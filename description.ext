@@ -1,0 +1,82 @@
+
+/*
+ *		Die description.ext
+ *
+ * Diese Datei fungiert als Erweiterung zur ArmA III Engine. Hier könnt ihr Missionsrelevante Informationen,
+ * wie Ladebild, Missionstyp, Spielerzahl, etc. festlegen und Erweiterungen zu den configs schreiben,
+ * z.B. die CfgFunctions, CfgSounds, etc.
+ *
+ * Weitere Informationen findet ihr hier:
+ *		https://community.bistudio.com/wiki/description.ext
+ *		https://community.bistudio.com/wiki/Functions_Library_%28Arma_3%29
+ */
+
+/* MISSIONSINFORMATIONEN */
+class Header
+{
+	gameType = COOP;
+	minPlayers = 1;
+	maxPlayers = 20;
+};
+
+Author = "[W] Nocturne";
+OnLoadName = "Coop6 - Sealteam Alpha";
+OnLoadMission = "Keep calm and kill them all!";
+//LoadScreen = "pics\loadingscreen.paa";
+
+/* OVERVIEW */
+overviewText = "Keep calm and kill them all!";
+//overviewPicture = "pics\loadingscreen.paa";
+dev = "[W] Nocturne";
+
+/* RESPAWN */
+respawnDelay = 5;
+
+/* GENERELLES */
+Saving = 0;
+disabledAI = 1;
+
+/* EINSTELLUNGEN FÜR DAS FRAMEWORK */
+
+// Welches Medicsystem soll genutzt werden? Maximal eine Zeile auskommentieren!
+// !!!Sind mehrere Zeilen auskommentiert, wird das Spiel abstürzen!!!
+#define RUNNINGMAN
+// #define BASEJUMPER
+// #define BASEJUMPER_LAND
+// #define MILSIM
+
+// Einstellungen für das Framework
+class CfgFrameworkSettings {
+	// Bedingung, unter der den Spielern die Karte _nach_ Missionstart weggenommen werden soll. Formuliert als Code.
+	nomap = "true";
+	// 1 für Friendly Fire Logging, 0 sonst
+	logff = 1;
+	// 1, wenn Spieler bei fehlenden DLCs gekickt werden sollen, 0 sonst
+	allowkick = 1;
+	// Hier können Funkgeräte angegeben werden, die allein bei dem Tech Support Objekt geholt werden können, wenn auskommentiert, können alle Funkgeräte geholt werden
+	// radios_whitelist[] = {"ACRE_PRC343","ACRE_PRC148","ACRE_PRC152","ACRE_PRC117F","ACRE_PRC77"};
+};
+
+// Hier können die Channels angeschaltet werden.
+// #define ALLCHANNELS
+
+/* ERWEITERTE EINSTELLUNGEN */
+
+// MISSIONSPARAMETER - Standard, nur für den HC. Muss unbedingt der erste Parameter bleiben!
+class CfgFunctions {
+	#include "W_FRAMEWORK\CfgFunctions.hpp"		//	W_FRAMEWORK
+};
+
+class Params {
+	#include "W_FRAMEWORK\paramHC.hpp"			//	W_FRAMEWORK
+};
+
+#include "W_FRAMEWORK\description.ext"			//	W_FRAMEWORK
+
+class ACE_Settings {
+	#include "W_FRAMEWORK\ACE_Settings.hpp"			// W_FRAMEWORK
+};
+
+class CfgFramework {
+	#include "W_FRAMEWORK\CfgFramework.hpp"		// W_FRAMEWORK
+};
