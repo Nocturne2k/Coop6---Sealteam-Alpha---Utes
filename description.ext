@@ -30,7 +30,7 @@ overviewText = "Keep calm and kill them all!";
 dev = "[W] Nocturne";
 
 /* RESPAWN */
-respawnDelay = 5;
+respawnDelay = 30;
 
 /* GENERELLES */
 Saving = 0;
