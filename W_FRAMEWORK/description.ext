@@ -1,0 +1,24 @@
+w_framework_version = "v4.1.3";
+
+enableDebugConsole = 1;
+respawn = 3;
+
+#include "packages\FETT_teleporter\dialog.hpp"
+#include "packages\FETT_vd\dialog.hpp"
+
+#ifndef ALLCHANNELS
+	disableChannels[] = {0,1,2,3,6};
+#endif
+
+#ifdef RUNNINGMAN
+	medicSystem = "RUNNINGMAN";
+#endif
+#ifdef BASEJUMPER
+	medicSystem = "BASEJUMPER";
+#endif
+#ifdef BASEJUMPER_LAND
+	medicSystem = "BASEJUMPER_LAND";
+#endif
+#ifdef MILSIM
+	medicSystem = "MILSIM";
+#endif
